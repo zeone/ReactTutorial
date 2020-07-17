@@ -5,22 +5,23 @@ import PostStatusFilter from "../post-status-filter/post-status-filter";
 import PostList from "../post-list/post-list";
 import PostAddForm from "../post-add-form/post-add-form";
 import "./app.css";
+
 const App = () => {
 	const data = [
 		{
 			label: "Going to learn React",
 			important: true,
-			id:1
+			id: 1,
 		},
 		{
 			label: "Where is my money",
 			important: false,
-			id:2
+			id: 2,
 		},
 		{
 			label: "I want to sleep",
 			important: false,
-			id:3
+			id: 3,
 		},
 	];
 
