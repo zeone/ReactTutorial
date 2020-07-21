@@ -2,43 +2,29 @@ import React, { Component } from "react";
 import "./post-list-item.sass";
 
 export default class PostListItem extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			import: false,
-			like: false,
-		};
-		this.onImportant = this.onImportant.bind(this);
-		this.onLike = this.onLike.bind(this);
-	}
-	onImportant() {
-		this.setState(({ important }) => ({
-			important: !important,
-		}));
-	}
-
-	onLike() {
-		this.setState(({ like }) => ({
-			like: !like,
-		}));
-	}
 	render() {
-		const { label, onDelete } = this.props;
-		const { important, like } = this.state;
+		const {
+			label,
+			onDelete,
+			onToggleImportant,
+			onToggleLike,
+			important,
+			like,
+		} = this.props;
 		let classNames = "app-list-item d-flex justify-content-between";
 		if (important) classNames += " important";
 		if (like) classNames += " like";
 
 		return (
 			<div className={classNames}>
-				<span onClick={this.onLike} className="app-list-item-label">
+				<span onClick={onToggleLike} className="app-list-item-label">
 					{label}
 				</span>
 				<div className="d-flex justify-contenc-center align-items-center">
 					<button
 						className="btn-star btn-sm"
 						type="button"
-						onClick={this.onImportant}>
+						onClick={onToggleImportant}>
 						<i className="fa fa-star" />
 					</button>
 					<button onClick={onDelete} className="btn-trash btn-sm" type="button">
